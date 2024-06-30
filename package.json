@@ -1,0 +1,42 @@
+{
+  "name": "backstack-vue-assets",
+  "version": "0.0.1",
+  "description": "Assets for the backstack-vue package.",
+  "type": "module",
+  "files": [
+    "dist",
+    "assets/css",
+    "assets/js",
+    "assets/data"
+  ],
+  "main": "./dist/backstack-vue-assets.umd.cjs",
+  "module": "./dist/backstack-vue-assets.js",
+  "exports": {
+    ".": {
+      "import": "./dist/backstack-vue-assets.js",
+      "require": "./dist/backstack-vue-assets.umd.cjs"
+    },
+    "./assets/css/*": "./dist/assets/css/*",
+    "./assets/js/*": "./dist/assets/js/*",
+    "./assets/data/*": "./dist/assets/data/*"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "uuid": "^10.0.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "rollup-plugin-copy": "^3.5.0",
+    "sass": "^1.77.5",
+    "vite": "^5.1.6"
+  }
+}

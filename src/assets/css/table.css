@@ -1,0 +1,22 @@
+
+  
+  .table-cell-hide-on-small {
+    display: table-cell !important;
+  }
+  
+  @media (max-width: 768px) {
+    .table-cell-hide-on-small {
+      display: none !important;
+    }
+  }
+  
+  .table-cell-hide-on-medium {
+    display: table-cell !important;
+  }
+  
+  @media (max-width: 991px) {
+    .table-cell-hide-on-medium {
+      display: none !important;
+    }
+  
+  }
