@@ -27,9 +27,9 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, "src/components/index.js"),
-      name: "VueAssets",
+      name: "BackstackVueAssets",
       // the name of the output files when the build is run
-      fileName: "vue-assets",
+      fileName: "backstack-vue-assets",
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
