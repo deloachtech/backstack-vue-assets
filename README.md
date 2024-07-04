@@ -2,4 +2,4 @@
 
 > This project is not production ready!
 
-Assets for the [backstack-vue](https://github.com/deloachtech/backstack-vue) project.
+These are the assets for the [backstack-vue](https://github.com/deloachtech/backstack-vue) project. They can also be used separately from the project.
