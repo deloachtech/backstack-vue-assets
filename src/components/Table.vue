@@ -1,5 +1,5 @@
 <template>
-    <div :class="divClass">
+    <div class="bva-table" :class="divClass">
       <table :class="tableClasses">
         <thead>
           <tr>

@@ -27,7 +27,7 @@ const props = defineProps({
 
 <template>
 
-    <form class="signin-form">
+    <form class="signin-form bva-signin-form">
 
         <div class="text-center">
             <slot name="logo"></slot>

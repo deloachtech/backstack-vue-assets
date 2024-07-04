@@ -38,7 +38,7 @@ watch(modelValue, (newValue) => {
 </script>
 
 <template>
-  <div>
+  <div class="bva-form-select">
     <label v-if="label" :for="id" class="form-label">{{ label }}</label>
     <select :id="id" v-model="modelValue" class="form-select" :class="{ 'is-invalid': error }"
       :aria-label="placeholder">

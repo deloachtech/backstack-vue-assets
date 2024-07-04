@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bva-load-more">
         <slot :records="records"></slot>
         <button v-if="hasMore" @click="loadMore">More records...</button>
     </div>

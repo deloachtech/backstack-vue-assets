@@ -28,7 +28,7 @@ const data = ref({
 
 <template>
 
-    <form novalidate @submit.prevent="emit('submit', data)" class="signin-form">
+    <form novalidate @submit.prevent="emit('submit', data)" class="signin-form bva-signin-form">
 
         <div class="text-center">
             <slot name="logo"></slot>

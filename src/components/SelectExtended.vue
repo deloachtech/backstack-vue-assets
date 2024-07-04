@@ -34,7 +34,7 @@ const handleClick = (option) => {
 
 <template>
 
-    <div>
+    <div class="bva-select-extended">
         <label v-if="label" :for="uniqueId" class="form-label">{{ label }}</label>
         <div :id="uniqueId" class="dropdown d-flex justify-content-between align-items-center">
             <a :class="[error ? 'invalid-border' : '','btn btn-secondary dropdown-toggle w-100 d-flex justify-content-between align-items-center border-1']"

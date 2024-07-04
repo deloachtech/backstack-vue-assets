@@ -13,7 +13,7 @@ const uniqueId = uuidv4();
 </script>
 
 <template>
-    <div class="dropdown">
+    <div class="dropdown bva-dropdown">
         <button class="btn btn-secondary dropdown-toggle" :class="{ 'label-only': props.labelOnly }" type="button" :id="uniqueId"
             data-bs-toggle="dropdown" aria-expanded="false" v-html="props.label">
         </button>

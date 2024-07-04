@@ -13,7 +13,8 @@ export default defineConfig({
       targets: [
         { src: 'src/assets/css/*', dest: 'dist/assets/css' },
         { src: 'src/assets/js/*', dest: 'dist/assets/js' },
-        { src: 'src/assets/data/*', dest: 'dist/assets/data' }
+        { src: 'src/assets/data/*', dest: 'dist/assets/data' },
+        { src: 'src/stores/*', dest: 'dist/stores' }
       ],
       hook: 'writeBundle' // Run the plugin at the writeBundle hook
     })

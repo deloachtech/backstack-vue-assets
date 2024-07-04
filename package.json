@@ -1,13 +1,14 @@
 {
   "name": "backstack-vue-assets",
-  "version": "0.0.2",
+  "version": "0.0.21",
   "description": "Assets for the backstack-vue package.",
   "type": "module",
   "files": [
     "dist",
     "assets/css",
     "assets/js",
-    "assets/data"
+    "assets/data",
+    "stores"
   ],
   "main": "./dist/backstack-vue-assets.umd.cjs",
   "module": "./dist/backstack-vue-assets.js",
@@ -18,7 +19,8 @@
     },
     "./assets/css/*": "./dist/assets/css/*",
     "./assets/js/*": "./dist/assets/js/*",
-    "./assets/data/*": "./dist/assets/data/*"
+    "./assets/data/*": "./dist/assets/data/*",
+    "./stores/*": "./dist/stores/*"
   },
   "scripts": {
     "dev": "vite",

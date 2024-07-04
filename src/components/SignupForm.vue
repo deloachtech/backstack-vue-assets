@@ -77,7 +77,7 @@ const handleClick = (option) => {
 
 <template>
 
-    <form novalidate @submit.prevent="emit('submit', data)" class="signin-form">
+    <form novalidate @submit.prevent="emit('submit', data)" class="signin-form bva-signin-form">
 
         <div class="text-center">
             <slot name="logo"></slot>
@@ -85,7 +85,7 @@ const handleClick = (option) => {
 
         <h2 class="h4 mb-3 fw-normal text-center">{{ success ? 'Success!' : 'Sign Up' }}</h2>
 
-        <div v-if="showSuccess" class="text-center">
+        <div v-if="success" class="text-center">
 
             <p>Check your email for account activation instructions.</p>
 

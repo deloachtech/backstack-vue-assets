@@ -1,43 +1,42 @@
 <script setup>
-import { ref } from 'vue';
+//import { ref } from "vue";
 
 const props = defineProps({
-    color: {
-        type: String,
-        default: 'primary'
-    }
+  color: {
+    type: String,
+    default: "primary",
+  },
+  fullScreen: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-let color = ref(props.color);
+//let color = ref(props.color);
 </script>
 
-
 <template>
-    
-    <div class="spinner-container bva-full-screen-spinner">
-        <div class="spinner-border" :class="'text-' + color" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+  <div :class="[fullScreen ? 'spinner-container-fs' : 'spinner-container', 'bva-spinner']">
+    <div :class="[fullScreen ? 'spinner-border-fs': 'spinner-border','text-' + color]" role="status">
+      <span :class="[fullScreen ? 'visually-hidden-fs':'visually-hidden','']">Loading...</span>
     </div>
-    
+  </div>
 </template>
 
-
 <style scoped>
-.spinner-container {
+.spinner-container-fs {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 9999;
-    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.spinner-border {
+.spinner-border-fs {
     width: 2rem;
     height: 2rem;
     border-width: .25em;
@@ -53,7 +52,7 @@ let color = ref(props.color);
     }
 }
 
-.visually-hidden {
+.visually-hidden-fs {
     position: absolute;
     width: 1px;
     height: 1px;

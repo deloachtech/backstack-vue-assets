@@ -24,10 +24,6 @@ const router = createRouter({
       path: '/error500',
       component: () => import('@/components/Error500.vue')
     },
-    {
-      path: '/dev',
-      component: () => import('@/views/Dev.vue')
-    },
   ]
 })
 

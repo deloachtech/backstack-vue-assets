@@ -18,7 +18,7 @@
   
   
   <template>
-    <div>
+    <div class="bva-form-input">
       <label v-if="label" :for="id" class="form-label">{{ label }}</label>
       <input :placeholder="$attrs.placeholder" v-model="modelValue" :type="type" :id="id" class="form-control"
           :class="{ 'is-invalid': error }">

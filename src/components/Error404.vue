@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <section class="py-5 px-3 mx-auto text-center">
+    <section class="py-5 px-3 mx-auto text-center bva-error-404">
 
         <h1 class="mb-4 display-1 fw-bold text-primary">404</h1>
         <p class="mb-4 display-4 fw-bold">{{ pageHeader }}</p>
