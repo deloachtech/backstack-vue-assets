@@ -1,5 +1,5 @@
 <script setup>
-import { useSlots, computed } from "vue";
+import { useSlots } from "vue";
 
 const emit = defineEmits(["action"]);
 
@@ -11,17 +11,12 @@ const props = defineProps({
   },
   heading: String,
   headingText: String,
-  modalId: String,
 });
 
 const slots = useSlots();
 const hasSlot = (name) => {
   return !!slots[name];
 };
-
-const normalizedModalId = computed(() => {
-  return props.modalId.startsWith('#') ? props.modalId : `#${props.modalId}`;
-});
 </script>
 
 <template>
@@ -46,10 +41,7 @@ const normalizedModalId = computed(() => {
         <span class="flex-grow-1">{{ item.value }}</span>
 
         <span v-if="item.action" class="ms-4">
-          <button v-if="modalId" @click.prevent="emit('action', item)" type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" :data-bs-target="normalizedModalId">
-            {{ item.action }}
-          </button>
-          <button v-else @click.prevent="emit('action', item)" type="button" class="btn btn-outline-primary btn-sm">
+          <button @click.prevent="emit('action', item)" type="button" class="btn btn-outline-primary btn-sm">
             {{ item.action }}
           </button>
         </span>
