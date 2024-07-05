@@ -1,5 +1,5 @@
 <script setup>
-import { watch, computed } from 'vue';
+import { watch, computed } from "vue";
 
 const props = defineProps({
   id: String,
@@ -7,32 +7,31 @@ const props = defineProps({
   options: {
     type: Array,
     required: true,
-    default: []
+    default: [],
   },
   error: String,
   help: String,
   placeholder: {
-    type: [String,Boolean],
-    default: 'Select'
-  }
+    type: [String, Boolean],
+    default: "Select",
+  },
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(["update:modelValue"]);
 
-const modelValue = defineModel('modelValue');
+const modelValue = defineModel("modelValue");
 
 if (modelValue.value === undefined) {
-  emit('update:modelValue', '');
+  emit("update:modelValue", "");
 }
 
 // Computed property to check if modelValue is empty
-const isModelEmpty = computed(() => modelValue.value === '' || modelValue.value === null);
-
+const isModelEmpty = computed(() => modelValue.value === "" || modelValue.value === null);
 
 // Watch for changes in modelValue, if it empty,reset it to the placeholder's value
 watch(modelValue, (newValue) => {
-  if (newValue === null || newValue === '') {
-    emit('update:modelValue', '');
+  if (newValue === null || newValue === "") {
+    emit("update:modelValue", "");
   }
 });
 </script>
@@ -40,8 +39,7 @@ watch(modelValue, (newValue) => {
 <template>
   <div class="bva-form-select">
     <label v-if="label" :for="id" class="form-label">{{ label }}</label>
-    <select :id="id" v-model="modelValue" class="form-select" :class="{ 'is-invalid': error }"
-      :aria-label="placeholder">
+    <select :id="id" v-model="modelValue" class="form-select" :class="{ 'is-invalid': error }" :aria-label="placeholder">
       <!-- Placeholder option -->
       <option v-if="placeholder !== false" disabled value="">{{ placeholder }}</option>
       <!-- Options -->

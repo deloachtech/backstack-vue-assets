@@ -1,5 +1,5 @@
 <script setup>
-import { useSlots } from "vue";
+import { useSlots, computed } from "vue";
 
 const emit = defineEmits(["action"]);
 
@@ -9,25 +9,31 @@ const props = defineProps({
     required: true,
     default: [],
   },
-  heading:String,
-  headingText:String,
+  heading: String,
+  headingText: String,
+  modalId: String,
 });
 
 const slots = useSlots();
 const hasSlot = (name) => {
   return !!slots[name];
 };
+
+const normalizedModalId = computed(() => {
+  return props.modalId.startsWith('#') ? props.modalId : `#${props.modalId}`;
+});
 </script>
 
 <template>
-
   <div v-if="heading" class="border-bottom border-gray-100 mb-3">
     <h3 class="text-base fw-semibold mb-2 text-gray-900">{{ heading }}</h3>
-    <p v-if="headingText" class="mb-3 max-w-2xl text-sm text-gray-500">{{ headingText }}</p>
+    <p v-if="headingText" class="mb-3 max-w-2xl text-sm text-gray-500">
+      {{ headingText }}
+    </p>
   </div>
 
   <div class="">
-    <div v-for="(item, index) in data" :key="index" class="py-3 col-12 bva-setting">
+    <div v-for="(item, index) in data" :key="index" class="py-3 col-12 bva-data-display">
       <dt class="text-sm fw-medium text-gray-900">{{ item.label }}</dt>
 
       <dd v-if="hasSlot(item.key)" class="mt-1 text-sm text-gray-700">
@@ -40,11 +46,10 @@ const hasSlot = (name) => {
         <span class="flex-grow-1">{{ item.value }}</span>
 
         <span v-if="item.action" class="ms-4">
-          <button
-            @click.prevent="emit('action', item)"
-            type="button"
-            class="btn btn-outline-primary btn-sm"
-          >
+          <button v-if="modalId" @click.prevent="emit('action', item)" type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" :data-bs-target="normalizedModalId">
+            {{ item.action }}
+          </button>
+          <button v-else @click.prevent="emit('action', item)" type="button" class="btn btn-outline-primary btn-sm">
             {{ item.action }}
           </button>
         </span>
@@ -53,5 +58,4 @@ const hasSlot = (name) => {
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
