@@ -1,3 +1,14 @@
+<template>
+  <div class="bva-form-input">
+    <label v-if="label" :for="id" class="form-label">{{ label }}</label>
+    <input :placeholder="$attrs.placeholder" v-model="modelValue" :type="type" :id="id" class="form-control" :class="{ 'is-invalid': error }" />
+    <div v-if="error" class="invalid-feedback">
+      {{ error }}
+    </div>
+    <div v-if="help" class="form-text">{{ help }}</div>
+  </div>
+</template>
+
 <script setup>
 const props = defineProps({
   id: String,
@@ -12,14 +23,3 @@ const props = defineProps({
 
 const modelValue = defineModel();
 </script>
-
-<template>
-  <div class="bva-form-input">
-    <label v-if="label" :for="id" class="form-label">{{ label }}</label>
-    <input :placeholder="$attrs.placeholder" v-model="modelValue" :type="type" :id="id" class="form-control" :class="{ 'is-invalid': error }" />
-    <div v-if="error" class="invalid-feedback">
-      {{ error }}
-    </div>
-    <div v-if="help" class="form-text">{{ help }}</div>
-  </div>
-</template>

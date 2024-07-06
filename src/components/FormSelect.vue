@@ -1,3 +1,17 @@
+<template>
+  <div class="bva-form-select">
+    <label v-if="label" :for="id" class="form-label">{{ label }}</label>
+    <select :id="id" v-model="modelValue" class="form-select" :class="{ 'is-invalid': error }" :aria-label="placeholder">
+      <!-- Placeholder option -->
+      <option v-if="placeholder !== false" disabled value="">{{ placeholder }}</option>
+      <!-- Options -->
+      <option v-for="option in options" :key="option.id" :value="option.id">{{ option.title }}</option>
+    </select>
+    <div v-if="error" class="invalid-feedback">{{ error }}</div>
+    <div v-if="help" class="form-text">{{ help }}</div>
+  </div>
+</template>
+
 <script setup>
 import { watch, computed } from "vue";
 
@@ -35,17 +49,3 @@ watch(modelValue, (newValue) => {
   }
 });
 </script>
-
-<template>
-  <div class="bva-form-select">
-    <label v-if="label" :for="id" class="form-label">{{ label }}</label>
-    <select :id="id" v-model="modelValue" class="form-select" :class="{ 'is-invalid': error }" :aria-label="placeholder">
-      <!-- Placeholder option -->
-      <option v-if="placeholder !== false" disabled value="">{{ placeholder }}</option>
-      <!-- Options -->
-      <option v-for="option in options" :key="option.id" :value="option.id">{{ option.title }}</option>
-    </select>
-    <div v-if="error" class="invalid-feedback">{{ error }}</div>
-    <div v-if="help" class="form-text">{{ help }}</div>
-  </div>
-</template>

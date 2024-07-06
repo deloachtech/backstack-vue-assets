@@ -1,17 +1,3 @@
-<script setup>
-import { v4 as uuidv4 } from 'uuid';
-
-const emit = defineEmits(['click'])
-
-const props = defineProps({
-    label: { type: String, required: true },
-    options: { type: Array, required: true, default: [] },
-    labelOnly: { type: Boolean, default: false },
-})
-
-const uniqueId = uuidv4();
-</script>
-
 <template>
     <div class="dropdown bva-dropdown">
         <button class="btn btn-secondary dropdown-toggle" :class="{ 'label-only': props.labelOnly }" type="button" :id="uniqueId"
@@ -25,6 +11,20 @@ const uniqueId = uuidv4();
         </ul>
     </div>
 </template>
+
+<script setup>
+import { v4 as uuidv4 } from 'uuid';
+
+const emit = defineEmits(['click'])
+
+const props = defineProps({
+    label: { type: String, required: true },
+    options: { type: Array, required: true, default: [] },
+    labelOnly: { type: Boolean, default: false },
+})
+
+const uniqueId = uuidv4();
+</script>
 
 <style scoped>
 .label-only {

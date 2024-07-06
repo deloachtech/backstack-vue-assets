@@ -1,24 +1,3 @@
-<script setup>
-import { useSlots } from "vue";
-
-const emit = defineEmits(["action"]);
-
-const props = defineProps({
-  data: {
-    type: Array,
-    required: true,
-    default: [],
-  },
-  heading: String,
-  headingText: String,
-});
-
-const slots = useSlots();
-const hasSlot = (name) => {
-  return !!slots[name];
-};
-</script>
-
 <template>
   <div v-if="heading" class="border-bottom border-gray-100 mb-3">
     <h3 class="text-base fw-semibold mb-2 text-gray-900">{{ heading }}</h3>
@@ -49,5 +28,26 @@ const hasSlot = (name) => {
     </div>
   </div>
 </template>
+
+<script setup>
+import { useSlots } from "vue";
+
+const emit = defineEmits(["action"]);
+
+const props = defineProps({
+  data: {
+    type: Array,
+    required: true,
+    default: [],
+  },
+  heading: String,
+  headingText: String,
+});
+
+const slots = useSlots();
+const hasSlot = (name) => {
+  return !!slots[name];
+};
+</script>
 
 <style scoped></style>
