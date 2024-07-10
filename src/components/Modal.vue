@@ -8,13 +8,13 @@
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <slot name="default"> </slot>
+            <slot></slot>
           </div>
         </div>
         <div class="modal-footer">
-          <button @click.prevent="emit('cancel')" type="button" class="btn btn-secondary">Cancel</button>
-          <button v-if="submitting" type="button" disabled class="btn btn-primary"><span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Submit</button>
-          <button v-else type="submit" @click.prevent="emit('submit')" class="btn btn-primary">Submit</button>
+          <button @click.prevent="emit('cancel')" type="button" class="btn btn-secondary">{{ cancelLabel }}</button>
+          <button v-if="submitting" type="button" disabled class="btn btn-primary"><span class="spinner-border spinner-border-sm" aria-hidden="true"></span> {{ submitLabel }}</button>
+          <button v-else type="submit" @click.prevent="emit('submit')" class="btn btn-primary">{{ submitLabel }}</button>
         </div>
       </div>
     </div>
@@ -33,6 +33,8 @@ const props = defineProps({
   open: { type: Boolean, required: false, default: false },
   submitting: { type: Boolean, required: false, default: false },
   heading: String,
+  cancelLabel: { type: String, required: false, default: "Cancel" },
+  submitLabel: { type: String, required: false, default: "Submit" },
   static: { type: Boolean, required: false, default: true },
   backdrop: { type: [Boolean, String], required: false, default: "static" },
   keyboard: { type: Boolean, required: false, default: false },

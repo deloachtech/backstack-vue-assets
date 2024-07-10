@@ -2,8 +2,9 @@
 // const requiredAccess = "*"; // Grant access to all users
 // const sessionAccess = {feature1: "crud", feature2: "cr"};
 //
-// const userHasAccess = hasAccess(requiredAccess, sessionAccess);
-// console.log(userHasAccess); // Output: true
+// console.log(hasAccess('*', session.access)); // Output: true
+// console.log(hasAccess('account-users:NotInAccessControl', session.access)); // Output: false
+// console.log(hasAccess('unknown-feature:*', session.access)); // Output: false
 
 export function hasAccess(requiredAccess, sessionAccess) {
     // Check if the requiredAccess is "*"
@@ -26,7 +27,6 @@ export function hasAccess(requiredAccess, sessionAccess) {
 
             // Split each feature and its permissions. If no permissions assume any.
             const [feature, permissions = "*"] = control.split(':');
-
 
             // Check if the feature exists in the sessionAccess object
             if (sessionAccess.hasOwnProperty(feature)) {
