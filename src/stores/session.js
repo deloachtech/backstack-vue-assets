@@ -9,13 +9,13 @@ export const useSession = defineStore('sessionStore', {
 
         return {
             loading: false,
+            app: {},
             auth: false,
             account: {},
             user: {},
             access: [],
             access_signature: "",
             alerts: [],
-            appSchema: {},
             hasAccessFunction: hasAccess
         }
     },
@@ -33,16 +33,16 @@ export const useSession = defineStore('sessionStore', {
         getAccess() {
             return this.access
         },
-        async initialize(appSchema, hasAccessFunction = this.hasAccessFunction) {
+        async initialize(hasAccessFunction = this.hasAccessFunction) {
 
             if (this && hasAccessFunction && typeof hasAccessFunction === 'function') {
                 this.hasAccessFunction = hasAccessFunction;
             }
 
-            this.appSchema = appSchema
             this.loading = true
             await axios.get('https://api.backstack.com/v1/auth/session', { api: 'backstack' })
                 .then((response) => {
+                    this.app = response.data.app;
                     this.auth = response.data.auth;
                     this.access = response.data.access;
                     this.access_signature = response.data.access_signature;
@@ -56,6 +56,7 @@ export const useSession = defineStore('sessionStore', {
         },
         update(data) {
             this.auth = data.auth;
+            this.app = data.app;
             this.access = data.access;
             this.access_signature = data.access_signature;
             this.alerts = data.alerts;
@@ -68,6 +69,7 @@ export const useSession = defineStore('sessionStore', {
             await axios.get('https://api.backstack.com/v1/auth/logout', { api: 'backstack' })
                 .then((response) => {
                     this.auth = response.data.auth;
+                    this.app = response.data.app;
                     this.access = response.data.access;
                     this.access_signature = response.data.access_signature;
                     this.alerts = response.data.alerts;

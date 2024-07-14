@@ -14,8 +14,8 @@
     <div v-if="accounts.length > 0">
       <FormSelect :placeholder="false" id="account_id" label="Activate Account" v-model="data.account_id" :options="accounts" />
 
-      <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="loading">
-        <span v-if="loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="submitting">
+        <span v-if="submitting" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         <span v-else>Log In</span>
       </button>
     </div>
@@ -34,7 +34,7 @@ import { FormSelect } from "@/components";
 const emit = defineEmits(["submit"]);
 
 const props = defineProps({
-  loading: {
+  submitting: {
     type: Boolean,
     default: false,
   },

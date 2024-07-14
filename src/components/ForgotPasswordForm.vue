@@ -18,8 +18,8 @@
     <div v-else>
       <FormInput id="email" label="Email" v-model="data.email" :error="errors.email" type="email" help="An email with a reset password link will be sent to the address provided." class="mb-3" />
 
-      <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="loading">
-        <span v-if="loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="submitting">
+        <span v-if="submitting" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         <span v-else>Send Email</span>
       </button>
 
@@ -41,7 +41,7 @@ const props = defineProps({
     type: String,
     default: "/login",
   },
-  loading: {
+  submitting: {
     type: Boolean,
     default: false,
   },

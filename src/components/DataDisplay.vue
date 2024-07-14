@@ -17,7 +17,7 @@
       </dd>
 
       <dd v-else class="mt-1 d-flex text-sm text-gray-700">
-        <span class="flex-grow-1">{{ item.value }}</span>
+        <span class="flex-grow-1 text-secondary">{{ item.value }}</span>
 
         <span v-if="item.action" class="ms-4">
           <button @click.prevent="emit('action', item)" type="button" class="btn btn-outline-primary btn-sm">

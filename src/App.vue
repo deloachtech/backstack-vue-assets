@@ -1,18 +1,12 @@
 <template>
   <main class="container">
-    <PageHeading heading="Select Account">
-      <template #text> This is some heading text. </template>
-    </PageHeading>
-
-    <PageHeading heading="Select Account" asSubheading>
-      <template #text> This is some heading text. </template>
-    </PageHeading>
+    <CreditCardFormElements />
   </main>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
-import { PageHeading } from "./components";
+import CreditCardFormElements from "./components/CreditCardFormElements.vue";
 </script>
 
 <style scoped></style>

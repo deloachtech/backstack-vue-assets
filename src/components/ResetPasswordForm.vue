@@ -24,8 +24,8 @@
 
         <FormInput id="confirm" label="Confirm new password" v-model="data.confirm" :error="errors.confirm" type="password" class="mt-3 mb-3" />
 
-        <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="loading">
-          <span v-if="loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="submitting">
+          <span v-if="submitting" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
           <span v-else>Reset</span>
         </button>
 
@@ -58,7 +58,7 @@ const props = defineProps({
     type: String,
     default: "/forgot-password",
   },
-  loading: {
+  submitting: {
     type: Boolean,
     default: false,
   },

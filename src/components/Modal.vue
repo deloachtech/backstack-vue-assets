@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 v-if="heading" class="modal-title fs-5">{{ heading }}</h1>
+          <h1 v-if="heading" class="modal-title fs-5" v-html="heading"></h1>
           <button @click.prevent="emit('cancel')" type="button" class="btn-close" aria-label="Close"></button>
         </div>
         <div class="modal-body">

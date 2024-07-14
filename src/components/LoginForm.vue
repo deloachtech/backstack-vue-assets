@@ -21,8 +21,8 @@
     </div>
     <div v-else class="mt-3">{{ " " }}</div>
 
-    <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="loading">
-      <span v-if="loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+    <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="submitting">
+      <span v-if="submitting" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
       <span v-else>Log in</span>
     </button>
 
@@ -53,7 +53,7 @@ const props = defineProps({
     type: String,
     default: "/forgot-password",
   },
-  loading: {
+  submitting: {
     type: Boolean,
     default: false,
   },

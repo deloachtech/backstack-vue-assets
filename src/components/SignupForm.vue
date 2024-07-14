@@ -54,8 +54,8 @@
 
       <FormSelect id="country_id" placeholder="Country" v-model="data.country_id" :error="props.errors.country_id" :options="props.countries" class="mt-3 mb-3" />
 
-      <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="props.loading">
-        <span v-if="props.loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="props.submitting">
+        <span v-if="props.submitting" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         <span v-else>Create Account</span>
       </button>
 
@@ -78,7 +78,7 @@ const props = defineProps({
     type: String,
     default: "/login",
   },
-  loading: {
+  submitting: {
     type: Boolean,
     default: false,
   },
@@ -93,9 +93,9 @@ const props = defineProps({
     default: [],
   },
   domains: {
-    type: Object,
+    type: Array,
     required: true,
-    default: {},
+    default: [],
   },
   success: {
     type: Boolean,
@@ -104,12 +104,11 @@ const props = defineProps({
   },
 });
 
-// Filter and format domains for the SelectExtended component
+// Format domains for the SelectExtended component
 const domains = computed(() => {
-  return Object.entries(props.domains)
-    .filter(([_, domain]) => domain.allow_signup)
-    .map(([id, domain]) => ({
-      id,
+  return props.domains
+    .map(domain => ({
+      id: domain.id,
       label: domain.title,
       text: domain.signup_help,
     }));
