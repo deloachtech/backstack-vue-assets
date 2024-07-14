@@ -1,6 +1,6 @@
 {
   "name": "backstack-vue-assets",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "description": "Assets for the backstack-vue package.",
   "type": "module",
   "files": [

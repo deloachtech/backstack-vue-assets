@@ -7,23 +7,7 @@ const router = createRouter({
     {
       path: '/',
       component: Home
-    },
-    {
-      path: '/table-using-component',
-      component: () => import('@/views/TableUsingComponent.vue')
-    },
-    {
-      path: '/table-using-html',
-      component: () => import('@/views/TableUsingHtml.vue')
-    },
-    {
-      path: '/error404',
-      component: () => import('@/components/Error404.vue')
-    },
-    {
-      path: '/error500',
-      component: () => import('@/components/Error500.vue')
-    },
+    }
   ]
 })
 

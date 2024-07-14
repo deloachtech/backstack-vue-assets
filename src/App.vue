@@ -1,12 +1,12 @@
 <template>
-  <main class="container">
-    <CreditCardFormElements />
-  </main>
+ 
+<Modal></Modal>
+
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import CreditCardFormElements from "./components/CreditCardFormElements.vue";
+import  Modal  from "@/tests/Modal.vue";
+
 </script>
 
 <style scoped></style>
